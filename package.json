@@ -1,0 +1,20 @@
+{
+  "name": "bhoomilens-ai",
+  "version": "1.0.0",
+  "description": "Intelligent Land Record Digitization and Validation System",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "@types/multer": "^2.2.0"
+  }
+}

@@ -1,0 +1,55 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Helpers ──────────────────────────────────────────────────────────────
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return isSignedIn() && request.auth.uid == uid;
+    }
+
+    // ── Users ─────────────────────────────────────────────────────────────────
+    // Each user can read all users (for AdminPage), but only write their own profile.
+    match /users/{uid} {
+      allow read: if isSignedIn();
+      allow write: if isOwner(uid);
+    }
+
+    // ── Documents ─────────────────────────────────────────────────────────────
+    // Any signed-in user can upload / list documents.
+    match /documents/{docId} {
+      allow read, write: if isSignedIn();
+    }
+
+    // ── Land Records ──────────────────────────────────────────────────────────
+    match /landRecords/{recordId} {
+      allow read, write: if isSignedIn();
+    }
+
+    // ── Extracted Fields ──────────────────────────────────────────────────────
+    match /extractedFields/{fieldId} {
+      allow read, write: if isSignedIn();
+    }
+
+    // ── Verification Tasks ────────────────────────────────────────────────────
+    match /verificationTasks/{taskId} {
+      allow read, write: if isSignedIn();
+    }
+
+    // ── Record Conflicts ──────────────────────────────────────────────────────
+    match /recordConflicts/{conflictId} {
+      allow read, write: if isSignedIn();
+    }
+
+    // ── Audit Logs ────────────────────────────────────────────────────────────
+    // Read: any signed-in user. Write: only via server SDK (deny client writes).
+    match /auditLogs/{logId} {
+      allow read: if isSignedIn();
+      allow write: if false; // server-side only
+    }
+  }
+}
