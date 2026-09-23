@@ -9,7 +9,7 @@
     "rules": "storage.rules"
   },
   "hosting": {
-    "site": "uploading-digital-property-fa958",
+    "site": "bhoomilens-ai-app",
     "public": "apps/web/dist",
     "ignore": [
       "firebase.json",
