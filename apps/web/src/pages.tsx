@@ -134,7 +134,7 @@ function DigitizedViewModal({
         {/* Body */}
         <div className="flex-1 overflow-auto grid grid-cols-1 lg:grid-cols-2 gap-0">
           {/* Left: Original Document */}
-          <div className="border-r flex flex-col">
+          <div className="border-b lg:border-b-0 lg:border-r flex flex-col">
             <div className="px-5 py-3 border-b bg-secondary/20 flex items-center gap-2 text-sm font-semibold">
               <FileSearch2 className="w-4 h-4 text-muted-foreground" />
               Original Document
@@ -142,10 +142,10 @@ function DigitizedViewModal({
             <div className="flex-1 flex items-center justify-center bg-secondary/5 p-4 min-h-[400px]">
               {canPreview && isImage && (
                 <img src={downloadUrl!} alt={doc.originalName}
-                  className="max-w-full max-h-[60vh] object-contain rounded-lg shadow" />
+                  className="max-w-full max-h-[40vh] lg:max-h-[60vh] object-contain rounded-lg shadow" />
               )}
               {canPreview && isPdf && (
-                <iframe src={downloadUrl!} title={doc.originalName} className="w-full h-[60vh] border-0 rounded-lg" />
+                <iframe src={downloadUrl!} title={doc.originalName} className="w-full h-[40vh] lg:h-[60vh] border-0 rounded-lg" />
               )}
               {!canPreview && (
                 <div className="text-center p-8">
