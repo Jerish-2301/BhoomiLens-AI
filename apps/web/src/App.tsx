@@ -64,9 +64,9 @@ function Dashboard() {
            ✨ SMART INDIA HACKATHON PROTOTYPE
         </div>
       </div>
-      <div>
-        <h1 className="text-3xl font-heading font-bold text-foreground">Dashboard</h1>
-        <p className="text-muted-foreground mt-1">From Legacy Records to Trusted Land Intelligence.</p>
+      <div className="pt-2 sm:pt-0 px-1 sm:px-0">
+        <h1 className="text-2xl sm:text-3xl font-heading font-bold text-foreground">Dashboard</h1>
+        <p className="text-sm sm:text-base text-muted-foreground mt-1">From Legacy Records to Trusted Land Intelligence.</p>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
@@ -76,13 +76,13 @@ function Dashboard() {
           { label: 'Verification Pending', value: stats.verification, trend: 'Requires attention', alert: stats.verification > 0 },
           { label: 'High-Risk Conflicts', value: stats.conflicts, trend: 'Requires attention', alert: stats.conflicts > 0 },
         ].map((stat, i) => (
-          <div key={i} className="glass-card-hover p-6 flex flex-col gap-2 group">
-            <div className="text-sm font-medium text-muted-foreground flex items-center justify-between">
+          <div key={i} className="glass-card-hover p-4 sm:p-6 flex flex-col gap-1.5 sm:gap-2 group mx-1 sm:mx-0">
+            <div className="text-xs sm:text-sm font-medium text-muted-foreground flex items-center justify-between">
               {stat.label}
               {stat.alert && <span className="w-2.5 h-2.5 rounded-full bg-destructive animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.5)]"></span>}
             </div>
-            <div className="text-4xl font-bold font-heading gradient-text group-hover:scale-105 transition-transform duration-300 origin-left">{stat.value}</div>
-            <div className={`text-xs mt-1 ${stat.alert ? 'text-destructive font-medium' : 'text-muted-foreground'}`}>
+            <div className="text-3xl sm:text-4xl font-bold font-heading gradient-text group-hover:scale-105 transition-transform duration-300 origin-left">{stat.value}</div>
+            <div className={`text-[10px] sm:text-xs mt-0.5 sm:mt-1 ${stat.alert ? 'text-destructive font-medium' : 'text-muted-foreground'}`}>
               {stat.trend}
             </div>
           </div>

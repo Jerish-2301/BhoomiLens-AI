@@ -380,12 +380,12 @@ export function DocumentUploader() {
           </div>
           <ul className="divide-y">
             {recentDocs.map((d) => (
-              <li key={d.id} className="px-4 py-3 flex items-center justify-between text-sm">
-                <div className="flex items-center gap-3">
+              <li key={d.id} className="px-3 sm:px-4 py-3 flex items-center justify-between text-sm gap-2">
+                <div className="flex items-center gap-2 sm:gap-3 min-w-0">
                   <FileIcon className="w-4 h-4 text-muted-foreground flex-shrink-0" />
-                  <div>
-                    <p className="font-medium truncate max-w-[250px]">{d.originalName}</p>
-                    <p className="text-xs text-muted-foreground">{formatDate(d.createdAt)}</p>
+                  <div className="min-w-0">
+                    <p className="font-medium truncate max-w-[130px] sm:max-w-[250px]">{d.originalName}</p>
+                    <p className="text-[10px] sm:text-xs text-muted-foreground truncate">{formatDate(d.createdAt)}</p>
                   </div>
                 </div>
                 <span

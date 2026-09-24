@@ -16,20 +16,20 @@ export function Header() {
 
   return (
     <>
-      <header className="h-16 glass-card mt-4 mr-4 sticky top-4 z-40 flex items-center justify-between px-6">
-        <div className="flex items-center gap-4 flex-1">
-          <button className="flex items-center gap-2 text-sm text-muted-foreground bg-secondary/50 px-3 py-1.5 rounded-md border hover:bg-secondary transition-colors w-64 justify-between">
-            <div className="flex items-center gap-2">
-              <Search className="w-4 h-4" />
-              <span>Search records...</span>
+      <header className="h-14 sm:h-16 glass-card mt-2 sm:mt-4 mx-3 md:mr-4 md:ml-0 sticky top-2 sm:top-4 z-40 flex items-center justify-between px-3 sm:px-6">
+        <div className="flex items-center gap-2 sm:gap-4 flex-1 min-w-0 mr-2">
+          <button className="flex items-center gap-2 text-sm text-muted-foreground bg-secondary/50 px-2 sm:px-3 py-1.5 rounded-md border hover:bg-secondary transition-colors w-full max-w-[140px] sm:max-w-[256px] justify-between overflow-hidden">
+            <div className="flex items-center gap-2 truncate">
+              <Search className="w-4 h-4 flex-shrink-0" />
+              <span className="truncate">Search...</span>
             </div>
-            <kbd className="hidden sm:inline-flex items-center gap-1 bg-background border px-1.5 rounded text-[10px] font-mono font-medium">
+            <kbd className="hidden sm:inline-flex items-center gap-1 bg-background border px-1.5 rounded text-[10px] font-mono font-medium shrink-0">
               <span className="text-xs">⌘</span>K
             </kbd>
           </button>
         </div>
         
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
           {/* Theme toggle */}
           <button
             id="theme-toggle"
