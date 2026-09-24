@@ -35,8 +35,8 @@ export function Sidebar({ isMobileOpen, onClose }: SidebarProps) {
 
   return (
     <aside className={cn(
-      "w-[260px] glass-card m-4 h-[calc(100vh-32px)] fixed lg:sticky top-4 flex-col overflow-hidden z-50 transition-transform duration-300 ease-in-out lg:translate-x-0 lg:flex",
-      isMobileOpen ? "translate-x-0 flex" : "-translate-x-[150%] hidden lg:flex"
+      "w-[260px] glass-card m-4 h-[calc(100vh-32px)] fixed lg:sticky top-4 flex flex-col overflow-hidden z-50 transition-transform duration-300 ease-in-out lg:translate-x-0",
+      isMobileOpen ? "translate-x-0" : "-translate-x-[150%]"
     )}>
       <div className="h-16 flex items-center justify-between px-6 border-b border-white/10">
         <span className="font-heading font-bold text-xl text-primary tracking-tight">
