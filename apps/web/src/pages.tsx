@@ -696,7 +696,7 @@ export function AiIntelligencePage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
         {/* Uploads per Day — Bar Chart */}
-        <div className="bg-card border rounded-xl p-6 shadow-sm col-span-2">
+        <div className="bg-card border rounded-xl p-6 shadow-sm md:col-span-2">
           <h3 className="font-bold text-lg mb-1 flex items-center gap-2">
             <Target className="w-5 h-5 text-primary" /> Uploads per Day
           </h3>
@@ -1000,7 +1000,7 @@ export function VerificationPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left Col - Task List */}
-        <div className="bg-card border rounded-xl shadow-sm overflow-hidden flex flex-col h-[680px]">
+        <div className="bg-card border rounded-xl shadow-sm overflow-hidden flex flex-col h-[400px] lg:h-[680px]">
           <div className="p-4 border-b bg-secondary/30 flex items-center justify-between flex-shrink-0">
             <h3 className="font-semibold text-sm">Pending Review ({queue.length})</h3>
             {queue.length > 0 && (
@@ -1082,7 +1082,7 @@ export function VerificationPage() {
         </div>
 
         {/* Right Col - Review Workspace */}
-        <div className="lg:col-span-2 bg-card border rounded-xl shadow-sm h-[680px] flex flex-col overflow-hidden">
+        <div className="lg:col-span-2 bg-card border rounded-xl shadow-sm h-auto min-h-[600px] lg:h-[680px] flex flex-col overflow-hidden">
           {!activeTask ? (
             <div className="flex-1 flex flex-col items-center justify-center gap-4 p-8 text-center">
               <div className="w-20 h-20 rounded-2xl bg-secondary/50 flex items-center justify-center">
@@ -1103,9 +1103,9 @@ export function VerificationPage() {
               )}
             </div>
           ) : (
-            <div className="flex-1 grid grid-cols-2 overflow-hidden">
+            <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 overflow-hidden">
               {/* Document Preview */}
-              <div className="border-r flex flex-col bg-secondary/10">
+              <div className="border-b lg:border-b-0 lg:border-r flex flex-col bg-secondary/10 h-[300px] lg:h-auto min-h-[250px]">
                 <div className="px-4 py-3 border-b bg-secondary/20 flex items-center gap-2 text-xs font-semibold text-muted-foreground flex-shrink-0">
                   <FileSearch2 className="w-3.5 h-3.5" /> Original Document
                 </div>
@@ -1975,8 +1975,8 @@ export function AuditPage() {
       </div>
 
       {/* Log Table */}
-      <div className="bg-card border rounded-xl overflow-hidden shadow-sm">
-        <table className="w-full text-left text-xs">
+      <div className="bg-card border rounded-xl overflow-x-auto shadow-sm">
+        <table className="w-full text-left text-xs min-w-[800px]">
           <thead className="bg-secondary/20 text-muted-foreground border-b">
             <tr>
               <th className="px-4 py-3 font-semibold w-44">Timestamp</th>
@@ -2247,11 +2247,11 @@ function AdminConsoleContent() {
       
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 space-y-6">
-          <div className="bg-card border rounded-xl overflow-hidden shadow-sm">
+          <div className="bg-card border rounded-xl overflow-x-auto shadow-sm">
             <div className="p-4 border-b">
               <h3 className="font-bold">User Management</h3>
             </div>
-            <table className="w-full text-left text-sm">
+            <table className="w-full text-left text-sm min-w-[500px]">
               <thead className="bg-secondary/10 text-muted-foreground">
                 <tr>
                   <th className="px-4 py-3 font-medium">Name &amp; Email</th>

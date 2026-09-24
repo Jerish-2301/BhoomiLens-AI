@@ -51,7 +51,7 @@ export function UserProfileSettings({ isOpen, onClose }: { isOpen: boolean, onCl
           </button>
         </div>
 
-        <div className="px-8 pb-8">
+        <div className="px-4 sm:px-8 pb-6 sm:pb-8">
           {/* Avatar Section */}
           <div className="relative -mt-16 mb-6 flex justify-between items-end">
             <div className="relative group cursor-pointer">

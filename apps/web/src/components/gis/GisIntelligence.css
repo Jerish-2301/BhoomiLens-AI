@@ -10,7 +10,19 @@
   position: relative;
   background: hsl(var(--background));
   /* Break out of the DashboardLayout main padding */
-  margin: -24px;
+  margin: -16px;
+}
+
+@media (min-width: 640px) {
+  .gis-page {
+    margin: -24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gis-page {
+    margin: -32px;
+  }
 }
 
 /* ── Sidebar ── */

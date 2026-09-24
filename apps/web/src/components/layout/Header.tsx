@@ -1,10 +1,14 @@
 import { useState } from 'react';
-import { Bell, Search, Sun, Moon, LogOut } from 'lucide-react';
+import { Bell, Search, Sun, Moon, LogOut, Menu } from 'lucide-react';
 import { UserProfileSettings } from './UserProfileSettings';
 import { useTheme } from '../../lib/theme';
 import { useAuth } from '../../lib/auth';
 
-export function Header() {
+interface HeaderProps {
+  onMenuClick?: () => void;
+}
+
+export function Header({ onMenuClick }: HeaderProps) {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const { user, logout } = useAuth();
@@ -18,6 +22,14 @@ export function Header() {
     <>
       <header className="h-14 sm:h-16 glass-card mt-2 sm:mt-4 mx-3 md:mr-4 md:ml-0 sticky top-2 sm:top-4 z-40 flex items-center justify-between px-3 sm:px-6">
         <div className="flex items-center gap-2 sm:gap-4 flex-1 min-w-0 mr-2">
+          <button 
+            onClick={onMenuClick}
+            className="p-2 -ml-2 text-muted-foreground hover:bg-secondary rounded-md lg:hidden flex-shrink-0"
+            aria-label="Open menu"
+          >
+            <Menu className="w-5 h-5" />
+          </button>
+          
           <button className="flex items-center gap-2 text-sm text-muted-foreground bg-secondary/50 px-2 sm:px-3 py-1.5 rounded-md border hover:bg-secondary transition-colors w-full max-w-[140px] sm:max-w-[256px] justify-between overflow-hidden">
             <div className="flex items-center gap-2 truncate">
               <Search className="w-4 h-4 flex-shrink-0" />

@@ -16,6 +16,10 @@
     "skipLibCheck": true,
     "strict": true,
     "strictPropertyInitialization": false,
-    "types": ["node", "jest", "multer"]
+    "types": [
+      "node",
+      "jest",
+      "multer"
+    ]
   }
 }

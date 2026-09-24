@@ -8,7 +8,8 @@ import {
   Activity, 
   ShieldAlert,
   Settings,
-  Bot
+  Bot,
+  X
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -24,13 +25,28 @@ const navItems = [
   { icon: Settings, label: 'Administration', href: '/admin' },
 ];
 
-export function Sidebar() {
+interface SidebarProps {
+  isMobileOpen?: boolean;
+  onClose?: () => void;
+}
+
+export function Sidebar({ isMobileOpen, onClose }: SidebarProps) {
   const location = useLocation();
 
   return (
-    <aside className="w-[260px] glass-card m-4 h-[calc(100vh-32px)] sticky top-4 flex-col hidden lg:flex overflow-hidden">
-      <div className="h-16 flex items-center px-6 border-b border-white/10 font-heading font-bold text-xl text-primary tracking-tight">
-        BhoomiLens AI
+    <aside className={cn(
+      "w-[260px] glass-card m-4 h-[calc(100vh-32px)] fixed lg:sticky top-4 flex-col overflow-hidden z-50 transition-transform duration-300 ease-in-out lg:translate-x-0 lg:flex",
+      isMobileOpen ? "translate-x-0 flex" : "-translate-x-[150%] hidden lg:flex"
+    )}>
+      <div className="h-16 flex items-center justify-between px-6 border-b border-white/10">
+        <span className="font-heading font-bold text-xl text-primary tracking-tight">
+          BhoomiLens AI
+        </span>
+        {isMobileOpen && (
+          <button onClick={onClose} className="p-1 rounded-md hover:bg-secondary text-muted-foreground lg:hidden">
+            <X className="w-5 h-5" />
+          </button>
+        )}
       </div>
       <nav className="flex-1 overflow-y-auto py-4 px-2 space-y-1">
         {navItems.map((item) => {
@@ -39,6 +55,7 @@ export function Sidebar() {
             <Link
               key={item.href}
               to={item.href}
+              onClick={onClose}
               className={cn(
                 "flex items-center gap-3 px-3 py-2.5 rounded-md text-sm transition-colors",
                 isActive 
